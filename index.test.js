@@ -1,25 +1,15 @@
-const { beforeEach } = require("@jest/globals");
-const { users, addUser } = require("./index");
+const request = require("supertest");
+const app = require("./dist/app");
 
-const mockUser = { id: 1, name: "Maxi" };
+describe("GET /auth", () => {
 
-describe("addUser", () => {
-
-  test("Deberia agregar un usuario", () => {
-
-    expect(addUser(mockUser)).toEqual([mockUser]);
-  
-  });
-
-  test("No deberia agregar un usuario con id existente", () => {
-
-    expect(addUser(mockUser)).toEqual([mockUser]);
-  
-  });
-
-  test("Deberia agregar un usuario con id inexistente en el array", () => {
-
-    expect(addUser({... mockUser, id: 2})).toEqual([mockUser,{... mockUser, id: 2}]);
+  test("Deberia devolver un error 404", (done) => {
+    request.agent(app)
+    .get("/auth")
+    .then(response => {
+        expect(response.statusCode).toBe(200);
+        done();
+    }).catch(error => console.error(error))
   
   });
 
