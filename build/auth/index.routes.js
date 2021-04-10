@@ -46,14 +46,31 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.controller = void 0;
-var controller = function (data) { return __awaiter(void 0, void 0, void 0, function () {
-    var dataProcess;
+exports.auth = void 0;
+var express_1 = __importDefault(require("express"));
+var index_controllers_1 = require("./index.controllers");
+exports.auth = express_1.default.Router();
+exports.auth.get("/", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var response, error_1;
     return __generator(this, function (_a) {
-        dataProcess = __assign(__assign({}, data), { dataAgregada: "Dta dhgdhdhd" });
-        return [2 /*return*/, dataProcess];
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, index_controllers_1.controller(__assign({}, req.query))];
+            case 1:
+                response = _a.sent();
+                res.send(response);
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _a.sent();
+                console.log(error_1);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
     });
-}); };
-exports.controller = controller;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguY29udHJvbGxlcnMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9hdXRoL2luZGV4LmNvbnRyb2xsZXJzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQU8sSUFBTSxVQUFVLEdBQUcsVUFBTyxJQUFTOzs7UUFDbEMsV0FBVyx5QkFBUSxJQUFJLEtBQUUsWUFBWSxFQUFFLGNBQWMsR0FBRSxDQUFDO1FBQzVELHNCQUFPLFdBQVcsRUFBQzs7S0FDdEIsQ0FBQztBQUhXLFFBQUEsVUFBVSxjQUdyQiJ9
+}); });
+//# sourceMappingURL=index.routes.js.map

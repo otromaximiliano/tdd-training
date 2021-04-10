@@ -5,7 +5,7 @@ export const auth: express.IRouter = express.Router();
 auth.get("/", async (req, res) => {
     try {
         const response = await controller({ ...req.query });
-        res.send(response);
+        res.json(response);
     } catch (error) {
         console.log(error);
     }
