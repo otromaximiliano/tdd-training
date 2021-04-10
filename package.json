@@ -4,7 +4,7 @@
   "description": "Practica de Desarrollo griado por pruebas",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node ./dist/app.js",
+    "start": "tsc && node ./dist/index.js",
     "debug": "export DEBUG=* && npm run start",
     "test": "jest"
   },
